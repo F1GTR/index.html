@@ -1,20 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>frfrr.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to frfrr.</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #2b2b52, #5d5d94);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Animated background */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 70%);
+            animation: move 10s infinite alternate ease-in-out;
+        }
+        @keyframes move {
+            0% { transform: translate(-10%, -10%); }
+            100% { transform: translate(10%, 10%); }
+        }
+
+        /* Content styles */
+        .content {
+            z-index: 1;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
         h1 {
-            color: #00ff55;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s infinite ease-in-out;
+        }
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #f39c12, 0 0 20px #e74c3c; }
+            50% { text-shadow: 0 0 20px #f39c12, 0 0 40px #e74c3c; }
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            border-radius: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #2ecc71, #3498db);
+        }
+
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+        .shape:nth-child(1) { top: 10%; left: 20%; animation-duration: 5s; }
+        .shape:nth-child(2) { top: 50%; left: 70%; animation-duration: 8s; }
+        .shape:nth-child(3) { top: 80%; left: 30%; animation-duration: 7s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
-    <h1>Coming Soon</h1>
-    <p>frfrr.</p>
+    <div class="background"></div>
+    <div class="content">
+        <h1>Welcome to FRFRR</h1>
+        <p>Your journey begins here. Explore the possibilities.</p>
+        <a href="mailto:admin@frfrr.com">Contact Us</a>
+    </div>
+
+    <!-- Floating shapes for added coolness -->
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
 </body>
 </html>

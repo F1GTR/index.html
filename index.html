@@ -22,7 +22,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
         }
 
         .background {
@@ -32,13 +31,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at center, #2a2a2a, #1a1a1a 70%);
-            animation: pulse 8s infinite alternate ease-in-out;
             z-index: -1;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
         }
 
         .container {
@@ -47,7 +40,6 @@
             margin: 0 auto;
             animation: fadeIn 1.5s ease-in-out;
             padding-top: 40px;
-            width: 90%;
         }
 
         @keyframes fadeIn {
@@ -103,7 +95,6 @@
             justify-content: center;
             gap: 20px;
             margin-top: 40px;
-            flex-wrap: wrap;
         }
 
         .social-icon {
@@ -146,11 +137,11 @@
         /* Blinking Cursor Effect */
         .cursor {
             display: inline-block;
-            width: 3px;
+            width: 3px; /* Slightly thicker cursor */
             height: 24px;
             background-color: #d4cbb3;
-            margin-left: 2px;
-            font-family: 'Courier New', monospace;
+            margin-left: 2px; /* Closer to the text */
+            font-family: 'Courier New', monospace; /* Monospace for a more traditional cursor look */
             animation: blink 0.8s step-end infinite;
         }
 
@@ -158,57 +149,24 @@
             50% { background-color: transparent; }
         }
 
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
-
-            .container {
-                padding: 20px;
-                width: 100%;
-                max-width: none;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-
-            .email {
-                font-size: 0.9rem;
-                margin-bottom: 20px;
-            }
-
-            .socials {
-                gap: 15px;
-            }
-
-            .social-icon {
-                width: 35px;
-                height: 35px;
-            }
+        /* Particle effect */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #d4cbb3;
+            animation: particleAnimation 5s infinite ease-in-out;
         }
 
-        /* Portrait adjustments */
-        @media (max-height: 800px) {
-            .container {
-                padding-top: 20px;
+        @keyframes particleAnimation {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
             }
-
-            .email {
-                font-size: 0.9rem;
-            }
-
-            .socials {
-                margin-top: 20px;
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
             }
         }
-
     </style>
 </head>
 <body>
@@ -263,6 +221,22 @@
                 cursor.style.transition = "opacity 1s";
                 cursor.style.opacity = 0;
             }, 2600); // 3000ms = 3 seconds
+
+            // Particle animation generation
+            setInterval(function() {
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+                particle.style.width = Math.random() * 5 + "px"; // Random size
+                particle.style.height = particle.style.width; // Keep it a circle
+                particle.style.left = Math.random() * window.innerWidth + "px"; // Random horizontal position
+                particle.style.bottom = 0 + "px"; // Start at the bottom of the screen
+                document.body.appendChild(particle);
+
+                // Remove particle after animation ends
+                setTimeout(function() {
+                    particle.remove();
+                }, 5000); // Match animation duration
+            }, 100); // Create a particle every 100ms
         };
 
         // Cursor interactive background effect

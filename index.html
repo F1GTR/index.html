@@ -6,7 +6,6 @@
     <meta name="description" content="Welcome to frfrr. - Your journey begins here.">
     <title>Home</title>
     <link rel="icon" href="https://i.postimg.cc/sDSCvgKN/frfr.png"> <!-- Favicon for the browser icon -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- Particles.js -->
     <style>
         /* Base reset */
         * {
@@ -24,19 +23,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: default; /* Keep the default cursor visible */
         }
 
-        /* Particles container */
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-
-        /* Background reactive to cursor movement */
+        /* Background with gradient and light glare effect */
         .background {
             position: fixed;
             top: 0;
@@ -53,6 +43,20 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* Lens Flare / Light Glare */
+        .lens-glare {
+            position: absolute;
+            width: 980px; /* Increased size by 40% */
+            height: 980px; /* Increased size by 40% */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 80%); /* Decreased opacity more */
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            opacity: 0.4; /* Further reduced opacity */
+            filter: blur(100px);
+            z-index: -2;
+            transition: transform 0.7s ease-out, opacity 0.7s ease-out; /* Increased delay for smooth effect */
         }
 
         /* Container */
@@ -160,8 +164,8 @@
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
     <div class="background"></div>
+    <div class="lens-glare"></div> <!-- Lens Glare Effect -->
     <div class="container">
         <h1>Welcome to frfrr,</h1>
         <p>Your journey begins here. Explore the possibilities.</p>
@@ -187,31 +191,25 @@
     </div>
 
     <script>
-        // Cursor interactive background effect
-        document.addEventListener('mousemove', function(e) {
-            var x = (e.clientX / window.innerWidth) * 100;
-            var y = (e.clientY / window.innerHeight) * 100;
-            document.querySelector('.background').style.backgroundPosition = `${x}% ${y}%`;
+        // Lens Flare Following Cursor
+        const lensGlare = document.querySelector('.lens-glare');
+        let cursorX = 0;
+        let cursorY = 0;
+
+        // Tracking mouse position
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.pageX;
+            cursorY = e.pageY;
         });
 
-        // Particles.js initialization
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#d4cbb3" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#d4cbb3", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "bounce": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
-            },
-            "retina_detect": true
-        });
+        // Updating glare position with a delay for smoother effect
+        setInterval(() => {
+            const distanceX = (cursorX - lensGlare.offsetLeft) * 0.05;  // Reduced movement ratio for slower response
+            const distanceY = (cursorY - lensGlare.offsetTop) * 0.05;  // Reduced movement ratio for slower response
+
+            lensGlare.style.left = lensGlare.offsetLeft + distanceX + 'px';
+            lensGlare.style.top = lensGlare.offsetTop + distanceY + 'px';
+        }, 30);  // Interval remains at 30ms for smooth transition
     </script>
 </body>
 </html>

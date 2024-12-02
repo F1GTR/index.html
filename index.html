@@ -7,179 +7,28 @@
     <title>Welcome.</title>
     <link rel="icon" href="https://i.postimg.cc/sDSCvgKN/frfr.png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #1a1a1a;
-            color: #d4cbb3;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #2a2a2a, #1a1a1a 70%);
-            z-index: -1;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            animation: fadeIn 1.5s ease-in-out;
-            padding-top: 40px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #d4cbb3;
-            display: inline-block;
-        }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #b8aea1;
-        }
-
-        .email {
-            font-size: 1rem;
-            color: #b8aea1;
-            text-decoration: none;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 40px;
-            transition: color 0.3s ease;
-        }
-
-        .email:hover {
-            color: #d4cbb3;
-        }
-
-        .email::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #d4cbb3;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .email:hover::after {
-            transform: scaleX(1);
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: -25px; /* Moved icons down by 5px from the current spot */
-        }
-
-        .social-icon {
-            width: 35px;
-            height: 35px;
-            filter: grayscale(1) brightness(0.7);
-            transition: filter 0.3s ease, transform 0.2s ease;
-        }
-
-        .social-icon:hover {
-            filter: grayscale(0) brightness(1);
-            transform: scale(1.1);
-        }
-
-        .social-icon.facebook:hover {
-            filter: grayscale(0) brightness(1) drop-shadow(0 0 4px #1877f2);
-        }
-
-        .social-icon.twitter:hover {
-            filter: grayscale(0) brightness(1) drop-shadow(0 0 4px #1da1f2);
-        }
-
-        .social-icon.instagram:hover {
-            filter: grayscale(0) brightness(1) drop-shadow(0 0 4px #e1306c);
-        }
-
-        /* Mobile adjustment */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            .email {
-                font-size: 0.9rem;
-            }
-
-            .socials {
-                margin-top: -25px; /* Move icons down by 5px on mobile too */
-                gap: 12px;
-            }
-
-            .social-icon {
-                width: 30px;
-                height: 30px;
-            }
-        }
-
-        /* Blinking Cursor Effect */
-        .cursor {
-            display: inline-block;
-            width: 3px; /* Slightly thicker cursor */
-            height: 24px;
-            background-color: #d4cbb3;
-            margin-left: 2px; /* Closer to the text */
-            font-family: 'Courier New', monospace; /* Monospace for a more traditional cursor look */
-            animation: blink 0.8s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% { background-color: transparent; }
-        }
-
-        /* Particle effect */
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background-color: #d4cbb3;
-            animation: particleAnimation 5s infinite ease-in-out;
-        }
-
-        @keyframes particleAnimation {
-            0% {
-                transform: translateY(0) scale(0.5);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background: #1a1a1a; color: #d4cbb3; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, #2a2a2a, #1a1a1a 70%); z-index: -1; }
+        .container { text-align: center; max-width: 600px; margin: 0 auto; animation: fadeIn 1.5s ease-in-out; padding-top: 40px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        h1 { font-size: 2.5rem; margin-bottom: 15px; color: #d4cbb3; display: inline-block; }
+        p { font-size: 1.1rem; margin-bottom: 30px; color: #b8aea1; }
+        .email { font-size: 1rem; color: #b8aea1; text-decoration: none; position: relative; display: inline-block; margin-bottom: 40px; transition: color 0.3s ease; }
+        .email:hover { color: #d4cbb3; }
+        .email::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: #d4cbb3; transform: scaleX(0); transition: transform 0.3s ease; }
+        .email:hover::after { transform: scaleX(1); }
+        .socials { display: flex; justify-content: center; gap: 15px; margin-top: -25px; }
+        .social-icon { width: 35px; height: 35px; filter: grayscale(1) brightness(0.7); transition: filter 0.3s ease, transform 0.2s ease; }
+        .social-icon:hover { filter: grayscale(0) brightness(1); transform: scale(1.1); }
+        .social-icon.facebook:hover { filter: grayscale(0) brightness(1) drop-shadow(0 0 4px #1877f2); }
+        .social-icon.twitter:hover { filter: grayscale(0) brightness(1) drop-shadow(0 0 4px #1da1f2); }
+        .social-icon.instagram:hover { filter: grayscale(0) brightness(1) drop-shadow(0 0 4px #e1306c); }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } p { font-size: 1rem; } .email { font-size: 0.9rem; } .socials { margin-top: -25px; gap: 12px; } .social-icon { width: 30px; height: 30px; } }
+        .cursor { display: inline-block; width: 3px; height: 24px; background-color: #d4cbb3; margin-left: 2px; font-family: 'Courier New', monospace; animation: blink 0.8s step-end infinite; }
+        @keyframes blink { 50% { background-color: transparent; } }
+        .particle { position: absolute; border-radius: 50%; background-color: #d4cbb3; animation: particleAnimation 5s infinite ease-in-out; }
+        @keyframes particleAnimation { 0% { transform: translateY(0) scale(0.5); opacity: 1; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
     </style>
 </head>
 <body>
@@ -187,72 +36,56 @@
     <div class="container">
         <h1><span id="typewriter"></span><span id="cursor" class="cursor"></span></h1>
         <p>Your journey begins here. Explore the possibilities.</p>
-
         <a href="mailto:contact@frfrr.com" class="email" target="_blank">contact@frfrr.com</a>
-
         <div class="socials">
             <a href="https://frfrr.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/800px-Logo_of_Twitter.svg.png" 
-                     alt="Twitter" class="social-icon twitter">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/800px-Logo_of_Twitter.svg.png" alt="Twitter" class="social-icon twitter">
             </a>
             <a href="https://frfrr.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" 
-                     alt="Instagram" class="social-icon instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" class="social-icon instagram">
             </a>
             <a href="https://frfrr.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png" 
-                     alt="Facebook" class="social-icon facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png" alt="Facebook" class="social-icon facebook">
             </a>
         </div>
     </div>
-
     <script>
-        // Typewriter effect function
         function typeWriter(element, text, speed, cursorElement) {
             let i = 0;
             let interval = setInterval(function() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
                     i++;
-                    cursorElement.style.opacity = 1; // Cursor appears immediately when typing starts
+                    cursorElement.style.opacity = 1;
                 } else {
                     clearInterval(interval);
                 }
             }, speed);
         }
 
-        // Call the typewriter effect on page load
         window.onload = function() {
             const welcomeText = "Welcome to frfrr,";
             const element = document.getElementById("typewriter");
             const cursor = document.getElementById("cursor");
-            cursor.style.opacity = 0; // Hide cursor initially
-            typeWriter(element, welcomeText, 150, cursor); // Speed in milliseconds (150ms)
-
-            // Make the cursor fade out after 3 seconds
+            cursor.style.opacity = 0;
+            typeWriter(element, welcomeText, 150, cursor);
             setTimeout(function() {
                 cursor.style.transition = "opacity 1s";
                 cursor.style.opacity = 0;
-            }, 2600); // 3000ms = 3 seconds
+            }, 2600);
 
-            // Particle animation generation
             setInterval(function() {
                 let particle = document.createElement("div");
                 particle.classList.add("particle");
-                particle.style.width = Math.random() * 5 + "px"; // Random size
-                particle.style.height = particle.style.width; // Keep it a circle
-                particle.style.left = Math.random() * window.innerWidth + "px"; // Random horizontal position
-                particle.style.bottom = 0 + "px"; // Start at the bottom of the screen
+                particle.style.width = Math.random() * 5 + "px";
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * window.innerWidth + "px";
+                particle.style.bottom = 0 + "px";
                 document.body.appendChild(particle);
-
-                // Remove particle after animation ends
-                setTimeout(function() {
-                    particle.remove();
-                }, 5000); // Match animation duration
-            }, 100); // Create a particle every 100ms
+                setTimeout(function() { particle.remove(); }, 5000);
+            }, 100);
         };
 
-        // Cursor interactive background effect
         document.addEventListener('mousemove', function(e) {
             var x = (e.clientX / window.innerWidth) * 100;
             var y = (e.clientY / window.innerHeight) * 100;

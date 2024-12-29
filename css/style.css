@@ -1,0 +1,111 @@
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(31, 31, 31, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    z-index: 1000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .logo img {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #d4cbb3;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #d4cbb3;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #d4cbb3;
+    color: #1a1a1a;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+#profilePic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+#dropdownMenu a {
+    padding: 10px 20px;
+    color: #d4cbb3;
+    display: block;
+}
+
+#dropdownMenu a:hover {
+    background-color: #444;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(45deg, #333333, #000000);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
